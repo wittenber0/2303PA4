@@ -1,9 +1,13 @@
 #include<iostream>
 
 int main(){
-  printf("yes");
+  printf("no");
   return 0;
 }
 
 
+<<<<<<< HEAD
 this should be a conflict liine;
+=======
+rip meeeeee;
+>>>>>>> Ryan
