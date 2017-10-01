@@ -1,6 +1,6 @@
 #include<iostream>
 
 int main(){
-  printf("yes");
+  printf("no");
   return 0;
 }
