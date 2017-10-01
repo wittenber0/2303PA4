@@ -1,0 +1,6 @@
+class EventManage{
+public:
+  EventManager(){
+    
+  }
+}
