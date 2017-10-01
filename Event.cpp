@@ -6,8 +6,4 @@ int main(){
 }
 
 
-<<<<<<< HEAD
-this should be a conflict liine;
-=======
 rip meeeeee;
->>>>>>> Ryan
