@@ -2,7 +2,7 @@
 
 class Teller{
 private:
-  LinkedList customerQue;
+  TellerQue customers;
 public:
   Teller(LinkedList q);
 };
