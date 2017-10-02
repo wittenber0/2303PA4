@@ -1,0 +1,6 @@
+class customerEvent{
+public:
+  customerEvent(){
+
+  }
+};

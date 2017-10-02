@@ -39,3 +39,12 @@ int LinkedList::remove(Event e){
 
   removeHelp(this->current, e);
 }
+
+Node* LinkedList::getFirst(){
+  return this.first;
+}
+
+
+Node* LinkedList::getLast(){
+  return this.last;
+}

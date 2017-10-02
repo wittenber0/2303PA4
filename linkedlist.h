@@ -18,5 +18,7 @@ public:
 
   int add(Event e);
   int remove(Event e);
+  Node* getFirst();
+  Node* getLast();
 
 };
