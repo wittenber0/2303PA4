@@ -1,6 +1,6 @@
 class Teller{
 public:
   Teller(){
-    
+
   }
-}
+};

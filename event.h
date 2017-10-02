@@ -1,6 +1,6 @@
 class Event{
 public:
   Event(){
-    
+
   }
-}
+};
