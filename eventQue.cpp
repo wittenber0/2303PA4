@@ -16,6 +16,8 @@ int EventQue::addHelper(Enode* n, Event e){
       Node* middle = new ENode(e, n->previous, n);
       n->previous->next = middle;
       n->previous = middle;
+    }else{
+      addHelper(n->next, e);
     }
   }
 }

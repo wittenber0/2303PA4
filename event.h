@@ -7,4 +7,5 @@ public:
   int getTime();
   int addToTail(LinkedList q);
   int removeFromHead(LinkedList q);
+  int action();
 };

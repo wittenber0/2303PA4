@@ -15,3 +15,7 @@ int Event::addToTail(LinkedList q){
 int Event::removeFromHead(LinkedList q){
   q.remove(q.getFirst());
 }
+
+int Event::action(){
+  return 0;
+}

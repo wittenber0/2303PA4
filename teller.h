@@ -4,5 +4,5 @@ class Teller{
 private:
   TellerQue customers;
 public:
-  Teller(LinkedList q);
+  Teller(TellerQue q);
 };
