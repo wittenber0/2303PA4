@@ -14,8 +14,6 @@ private:
   int removeHelp(ENode* n, Event e);
 
 public:
-  LinkedList();
-
   int add(Event e);
   int remove(Event e);
   ENode* getFirst();
