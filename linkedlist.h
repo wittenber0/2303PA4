@@ -7,11 +7,7 @@ public:
 };
 
 class LinkedList{
-private:
-  Node* first, last;
-  Node* current;
-  int deleteNode(Node* n);
-  int removeHelp(Node*, Event);
+
 
 public:
   LinkedList();
@@ -21,4 +17,10 @@ public:
   Node* getFirst();
   Node* getLast();
 
+private:
+  Node* first, last;
+  Node* current;
+  int deleteNode(Node* n);
+  int removeHelp(Node*, Event);
+  
 };
