@@ -6,11 +6,23 @@ TQNode::TQNode(CustomerEvent c, TQNode* p, TQNode* n){
   this->next = n;
 }
 
+
 int TellerQue::TellerQue(int id)
 {
   this.id = id;
   this.size = 0;
+  this.avalibleTime=0;
 }
+
+int TellerQue::idle(TellerEvent* t){
+  this.avalibleTime = startTime + t.getDuration();
+  return 0;
+}
+
+double TellerQue::getAvalible(){
+  return this.avalibleTime;
+}
+
 int TellerQue::add(TQNode* n, CustomerEvent e){
   if(first){
       if(e.arrivalTime > n->previous->arrivalTime && e.arrivalTime < n->arrivalTime){

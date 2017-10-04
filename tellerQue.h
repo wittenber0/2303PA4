@@ -16,9 +16,12 @@ public:
   int getSize();
   TQNode* getFirst();
   TQNode* getLast();
+  double getAvalible();
+  int idle(TellerEvent* t);
 
 
 private:
+  double avalibleTime;
   int size;
   int id;
   TQNode* first, last, current;
