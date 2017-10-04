@@ -6,19 +6,30 @@ ENode::ENode(Event e, ENode* p, ENode* n){
   this->next = n;
 }
 
-int EventQue::add(Event e){
+EventQue::EventQue(){
 }
 
-int EventQue::addHelper(Enode* n, Event e){
-  if(n->previous){
-    if(e.time > n->previous->time && e.time < n->time){
-      Node* middle = new ENode(e, n->previous, n);
-      n->previous->next = middle;
-      n->previous = middle;
-    }else{
-      addHelper(n->next, e);
-    }
+int EventQue::add(ENode* n, Event e){
+  if(first){
+      if(e.time > n->previous->time && e.time < n->time){
+        ENode* middle = new ENode(e, n->previous, n);
+        n->previous->next = middle;
+        n->previous = middle;
+      }else{
+        if(n->next){
+          add(n->next, e);
+        }else{
+          ENode* end = new ENode(e, n, 0);
+          this.last = end;
+        }
+      }
+  }else{
+    this.first = new ENode(e, 0, 0);
+    this.last = this.first;
   }
+
+
+  return 0;
 }
 
 int EventQue::deleteNode(ENode* n){

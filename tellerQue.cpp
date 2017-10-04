@@ -1,27 +1,52 @@
 #include "headerheader.h"
 
-TQNode::TQNode(Customer c, TQNode* p, TQNode* n){
-  this->customer = c;
+TQNode::TQNode(CustomerEvent c, TQNode* p, TQNode* n){
+  this->CustomerEvent = c;
   this->previous = p;
   this->next = n;
 }
 
-int TellerQue::add(Customer c){
-  TQNode* np = &(this->last);
-  TQNode* nn = 0;
-  TQNode* n = new TQNode(e, np, nn);
-  this->last.next = n;
+int TellerQue::TellerQue(int id)
+{
+  this.id = id;
+  this.size = 0;
+}
+int TellerQue::add(TQNode* n, CustomerEvent e){
+  if(first){
+      if(e.arrivalTime > n->previous->arrivalTime && e.arrivalTime < n->arrivalTime){
+        TQNode* middle = new TQNode(e, n->previous, n);
+        n->previous->next = middle;
+        n->previous = middle;
+      }else{
+        if(n->next){
+          add(n->next, e);
+        }else{
+          TQNode* end = new TQNode(e, n, 0);
+          this.last = end;
+        }
+      }
+  }else{
+    this.first = new ENode(e, 0, 0);
+    this.last = this.first;
+  }
+
+
   return 0;
 }
+
 
 int TellerQue::deleteNode(TQNode* n){
   //deleteNode From memory still needs to be done here
   n->previous->next = n->next;
 }
 
-int TellerQue::removeHelp(TQNode* n, Customer c){
+int TellerQue::getSize(){
+  return this.size;
+}
+
+int TellerQue::removeHelp(TQNode* n, CustomerEvent c){
   TQNode node = *n;
-  if(&(node.customer) == &c){
+  if(&(node.customerevent) == &c){
     deleteNode(n);
     return 1;
   }

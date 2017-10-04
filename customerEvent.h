@@ -2,7 +2,8 @@
 
 class CustomerEvent : public Event{
 private:
-  int startTime;
+  int arrivalTime;
+  int serviceTime;
   int completeTime;
 public:
   CustomerEvent(int time);

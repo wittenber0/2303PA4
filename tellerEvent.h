@@ -1,5 +1,5 @@
-class tellerEvent{
+class TellerEvent{
 public:
-  tellerEvent();
+  TellerEvent();
   int action();
 };

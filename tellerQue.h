@@ -2,23 +2,26 @@
 
 class TQNode{
 public:
-  Customer customer;
+  CustomerEvent customerevent;
   TQNode* previous;
   TQNode* next;
-  TQNode(Customer c, TQNode* p, TQNode* n);
+  TQNode(CustomerEvent c, TQNode* p, TQNode* n);
 }
 
 class TellerQue{
 public:
-  TellerQue();
-  int add(Customer c);
-  int remove(Customer c);
+  TellerQue(int id);
+  int add(CustomerEvent c);
+  int remove(CustomerEvent c);
+  int getSize();
   TQNode* getFirst();
   TQNode* getLast();
 
 
 private:
+  int size;
+  int id;
   TQNode* first, last, current;
   int deleteNode(TQNode* n);
-  int removeHelp(TQNode* n, Customer c);
+  int removeHelp(TQNode* n, CustomerEvent c);
 }

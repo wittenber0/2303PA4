@@ -14,6 +14,7 @@ private:
   int removeHelp(ENode* n, Event e);
 
 public:
+  EventQue();
   int add(Event e);
   int remove(Event e);
   ENode* getFirst();
