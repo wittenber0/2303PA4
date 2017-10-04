@@ -1,4 +1,5 @@
-#include "headerheader.h"
+//#include "headerheader.h"
+#include "tellerQue.h"
 
 TQNode::TQNode(CustomerEvent c, TQNode* p, TQNode* n){
   this->CustomerEvent = c;

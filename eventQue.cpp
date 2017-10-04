@@ -1,4 +1,5 @@
-#include "headerheader.h"
+//#include "headerheader.h"
+#include "eventQue.h"
 
 ENode::ENode(Event e, ENode* p, ENode* n){
   this->event = e;

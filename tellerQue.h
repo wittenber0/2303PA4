@@ -1,4 +1,7 @@
-#include "headerheader.cpp"
+//#include "headerheader.h"
+#include "customerEvent.h"
+#include "tellerEvent.h"
+
 
 class TQNode{
 public:
@@ -27,4 +30,4 @@ private:
   TQNode* first, last, current;
   int deleteNode(TQNode* n);
   int removeHelp(TQNode* n, CustomerEvent c);
-}
+};

@@ -1,4 +1,5 @@
-#include "headerheader.h"
+#include "tellerQue.h"
+#include "eventQue.h"
 #include <cstdlib>
 double globalclock;
 double totalIdleTime=0;
@@ -53,31 +54,34 @@ int main(int argc, char* argv[]){
 
     for (globalclock =0; globalclock<simTime; globalclock += 0.1){
     //add handling starting ....
-      Event* E = eventque.getFirst;
-      if (E->iscustomer){
-        TellerQue* smallest = tellerlist->getSmallestTeller();
-        smallest->add(E);
-        eventque->remove(E);
-      }
+      if(eventque->getFirst() && eventque->getFirst()->isCustomer()){
 
-      for (int i=0; i< numTellers; i++){
-        TellerQue currentTeller = tellerlist;
-        if(i!=0){
-          currentTeller++;
+        CustomerEvent* E = eventque.getFirst;
+        if (E->iscustomer){
+          TellerQue* smallest = tellerlist->getSmallestTeller();
+          smallest->add(E);
+          eventque->remove(E);
         }
 
-        if(currentTeller->getAvalible() == globalclock && currentTeller->first){
-          Event* nextEvent = currentTeller->first;
-          nextEvent->completionTime = globalclock + nextEvent->serviceTime;
-          nextEvent->action();
+        for (int i=0; i< numTellers; i++){
+          TellerQue currentTeller = tellerlist;
+          if(i!=0){
+            currentTeller++;
+          }
 
-          currentTeller->avalibleTime = globalclock + nextEvent->serviceTime;
-          proccessedEvents->add(nextEvent);
-          currentTeller->remove(nextEvent);
-        }else if(!currentTeller->first && currentTeller->getAvalible() == globalclock){
-          TellerEvent* idleEvent = new TellerEvent(globalclock);
-          currentTeller->idle(idleEvent);
-          idleEvent->action();
+          if(currentTeller->getAvalible() == globalclock && currentTeller->first){
+            Event* nextEvent = currentTeller->first;
+            nextEvent->completionTime = globalclock + nextEvent->serviceTime;
+            nextEvent->action();
+
+            currentTeller->avalibleTime = globalclock + nextEvent->serviceTime;
+            proccessedEvents->add(nextEvent);
+            currentTeller->remove(nextEvent);
+          }else if(!currentTeller->first && currentTeller->getAvalible() == globalclock){
+            TellerEvent* idleEvent = new TellerEvent(globalclock);
+            currentTeller->idle(idleEvent);
+            idleEvent->action();
+          }
         }
       }
     }

@@ -1,4 +1,5 @@
-#include "headerheader.h"
+
+#include "customerEvent.h"//#include "headerheader.h"
 #include <cstdlib>
 
 CustomerEvent::CustomerEvent(double arrivalTime, double serviceDuration){

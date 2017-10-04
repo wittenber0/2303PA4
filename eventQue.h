@@ -1,3 +1,5 @@
+#include "event.h"
+
 class ENode{
 public:
   Event event;

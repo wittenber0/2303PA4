@@ -1,4 +1,4 @@
-#include "headerheader.h"
+#include "tellerEvent.h"
 
 
 double TellerEvent::idle(){
@@ -12,5 +12,5 @@ TellerEvent::TellerEvent(double occuranceTime, double duration){
 
 int TellerEvent::action(){
   totalIdleTime += this.duration;
-  
+
 }
