@@ -7,7 +7,6 @@ ENode::ENode(Event e, ENode* p, ENode* n){
 }
 
 int EventQue::add(Event e){
-
 }
 
 int EventQue::addHelper(Enode* n, Event e){
