@@ -1,3 +1,6 @@
+//#ifdef CE
+//#define CE
+
 #include "event.h"
 
 class CustomerEvent : public Event{
@@ -13,3 +16,5 @@ public:
   double getCompletionTime();
   double getServiceDuration();
 };
+
+//#endif

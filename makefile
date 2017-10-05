@@ -3,25 +3,25 @@ CFLAGS=-g
 
 all: qSim
 qSim: main.o customerEvent.o event.o tellerEvent.o tellerQue.o
-	g++ main.o -o qSIm
+	g++ -c main.o customerEvent.o event.o tellerEvent.o tellerQue.o -o qSIm
 
 main.o: main.cpp statistics.h event.h customerEvent.h tellerEvent.h tellerQue.h
-	g++ -c   main.cpp
+	g++ -c main.cpp
 
 customerEvent.o: customerEvent.cpp customerEvent.h event.h
-	g++ -c   customerEvent.cpp
+	g++ -c customerEvent.cpp
 
 event.o: event.cpp event.h
-	g++ -c   event.cpp
+	g++ -c event.cpp
 
 tellerEvent.o: tellerEvent.cpp tellerEvent.h event.h
-	g++ -c   tellerEvent.cpp
+	g++ -c tellerEvent.cpp
 
-tellerQue.o: tellerQue.cpp tellerQue.h
-	g++ -c   customerEvent.cpp
+tellerQue.o: tellerQue.cpp tellerQue.h event.h customerEvent.h 
+	g++ -c tellerQue.cpp
 
 
 
 
 clean:
-	rm   =f  *.o qSim
+	rm   -f  *.o qSim

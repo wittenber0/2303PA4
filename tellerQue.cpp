@@ -1,6 +1,7 @@
 #include "tellerQue.h"
+#include "event.h"
 
-TQNode::TQNode(CustomerEvent c, TQNode* p, TQNode* n){
+TQNode::TQNode(Event c, TQNode* p, TQNode* n){
   this->customerevent = c;
   this->previous = p;
   this->next = n;
@@ -22,7 +23,7 @@ double TellerQue::getAvalible(){
   return this->avalibleTime;
 }
 
-int TellerQue::addHelper(TQNode* n, CustomerEvent e){
+int TellerQue::addHelper(TQNode* n, Event e){
   if(first){
       if(e.arrivalTime > n->previous->customerevent.getArrivalTime() && e.arrivalTime < n->customerevent.getArrivalTime()){
         TQNode* middle = new TQNode(e, n->previous, n);
@@ -45,7 +46,7 @@ int TellerQue::addHelper(TQNode* n, CustomerEvent e){
   return 0;
 }
 
-int TellerQue::add(CustomerEvent e){
+int TellerQue::add(Event e){
   this->size++;
 	return this->addHelper(this->first, e);
 }
@@ -60,7 +61,7 @@ int TellerQue::getSize(){
   return this->size;
 }
 
-int TellerQue::removeHelp(TQNode* n, CustomerEvent c){
+int TellerQue::removeHelp(TQNode* n, Event c){
   TQNode node = *n;
   if(&(node.customerevent) == &c){
     deleteNode(n);
@@ -75,7 +76,7 @@ int TellerQue::removeHelp(TQNode* n, CustomerEvent c){
 }
 
 
-int TellerQue::remove(CustomerEvent c){
+int TellerQue::remove(Event c){
   this->current = this->first;
   TQNode* kill = this->current;
 
