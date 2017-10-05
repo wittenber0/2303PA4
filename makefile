@@ -8,6 +8,9 @@ qSim: main.o customerEvent.o event.o tellerEvent.o tellerQue.o
 main.o: main.cpp statistics.h event.h customerEvent.h tellerEvent.h tellerQue.h
 	g++ -c main.cpp
 
+tellerQue.o: tellerQue.cpp tellerQue.h
+	g++ -c tellerQue.cpp
+
 customerEvent.o: customerEvent.cpp customerEvent.h event.h
 	g++ -c customerEvent.cpp
 
@@ -17,8 +20,7 @@ event.o: event.cpp event.h
 tellerEvent.o: tellerEvent.cpp tellerEvent.h event.h
 	g++ -c tellerEvent.cpp
 
-tellerQue.o: tellerQue.cpp tellerQue.h event.h customerEvent.h 
-	g++ -c tellerQue.cpp
+
 
 
 
