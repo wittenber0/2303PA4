@@ -8,9 +8,8 @@ TQNode::TQNode(CustomerEvent c, TQNode* p, TQNode* n){
 }
 
 
-int TellerQue::TellerQue(int id)
+TellerQue::TellerQue()
 {
-  this->id = id;
   this->size = 0
   this->avalibleTime=0;
 }

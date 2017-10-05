@@ -11,4 +11,4 @@ public:
 
 private:
   double occuranceTime, duration;
-}
+};

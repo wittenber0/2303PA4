@@ -23,3 +23,11 @@ int CustomerEvent::isCustomer(){
 double CustomerEvent::getArrivalTime(){
 	return this->arrivalTime;
 }
+
+double CustomerEvent::getCompletionTime(){
+	return this->completionTime;
+}
+
+double CustomerEvent::getServiceDuration(){
+	return this->getServiceDuration;
+}

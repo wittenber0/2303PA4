@@ -4,10 +4,10 @@ Event::Event(int t){
   this->time = t;
 }
 
-int Event::isCustomer(){
+virtual int Event::isCustomer(){
   return 0;
 }
 
-int Event::action(){
+virtual int Event::action(){
   return 0;
 }

@@ -3,13 +3,15 @@
 
 
 class CustomerEvent : public Event{
-private:
+
+public:
+  CustomerEvent(double arrivalTime, double serviceDuration);
   double arrivalTime;
   double serviceDuration;
   double completionTime;
-public:
-  CustomerEvent(double arrivalTime, double serviceDuration);
   int action();
   int isCustomer();
   double getArrivalTime();
+  double getCompletionTime();
+  double getServiceDuration();
 };
