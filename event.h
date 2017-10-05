@@ -1,11 +1,16 @@
-
+#ifndef EV
+#define EV
 class Event{
 private:
 
-
 public:
-  Event(double t);
+  Event(double arrivalTime, double serviceDuration);
+  double arrivalTime;
+  double serviceDuration;
+  double completionTime;
   virtual int action();
-  double time;
   virtual int isCustomer();
+
 };
+
+#endif

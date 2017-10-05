@@ -1,3 +1,4 @@
+
 #include "eventQue.h"
 
 ENode::ENode(Event e, ENode* p, ENode* n){
@@ -6,8 +7,7 @@ ENode::ENode(Event e, ENode* p, ENode* n){
   this->next = n;
 }
 
-EventQue::EventQue(){
-}
+EventQue::EventQue(){}
 
 int EventQue::addHelp(ENode* n, Event e){
   if(first){

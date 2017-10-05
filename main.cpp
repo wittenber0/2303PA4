@@ -2,7 +2,7 @@
 #include <cstdlib>
 #include <iostream>
 #include "statistics.h"
-#include "event.h"
+//#include "event.h"
 #include "customerEvent.h"
 #include "tellerEvent.h"
 #include "tellerQue.h"
@@ -40,8 +40,8 @@ int main(int argc, char* argv[]){
       tellerlist = tellerque;
     }
 
-    EventQue* eventque = new EventQue();//create event que
-    EventQue* proccessedEvents = new EventQue();
+    TellerQue* eventque = new TellerQue();//create event que
+    TellerQue* proccessedEvents = new TellerQue();
     for(int i=0; i<numCustomers; i++){
       double serviceDuration = 2*averageTime*rand()/float(RAND_MAX);
       double arrTime = simTime * rand()/float(RAND_MAX);
@@ -53,19 +53,16 @@ int main(int argc, char* argv[]){
 
     for (globalclock =0; globalclock<simTime; globalclock += 0.1){
     //add handling starting ....
-      if(eventque->getFirst() && eventque->getFirst()->event.isCustomer()){
+      if(eventque->getFirst() && eventque->getFirst()->customerevent.isCustomer()){
 
 
-        Event EE = eventque->getFirst()->event;
+        Event E = eventque->getFirst()->customerevent;
 
-
-
-
-        if (EE.isCustomer()){
-          CustomerEvent* E = dynamic_cast<CustomerEvent*>(&EE);
+        if (E.isCustomer()){
+          //CustomerEvent* E = dynamic_cast<CustomerEvent*>(&EE);
           TellerQue* smallest = getSmallestTeller(tellerlist, numTellers);
-          smallest->add(*E);
-          eventque->remove(*E);
+          smallest->add(E);
+          eventque->remove(E);
         }
 
         for (int i=0; i< numTellers; i++){
@@ -75,11 +72,11 @@ int main(int argc, char* argv[]){
           }
 
           if(currentTeller->getAvalible() == globalclock && currentTeller->getFirst()){
-            CustomerEvent nextEvent = currentTeller->getFirst()->customerevent;
-            nextEvent.completionTime = globalclock + nextEvent.getServiceDuration();
+            Event nextEvent = currentTeller->getFirst()->customerevent;
+            nextEvent.completionTime = globalclock + nextEvent.serviceDuration;
             nextEvent.action();
 
-            currentTeller->avalibleTime = globalclock + nextEvent.getServiceDuration();
+            currentTeller->avalibleTime = globalclock + nextEvent.serviceDuration;
             proccessedEvents->add(nextEvent);
             currentTeller->remove(nextEvent);
           }else if(!currentTeller->getFirst() && currentTeller->getAvalible() == globalclock){
@@ -95,7 +92,7 @@ int main(int argc, char* argv[]){
 
     printf("Total Customers Served: %i\n", totalCustomersServed);
     printf("Total Number of Tellers: %i\n", numTellers);
-    printf("Average Time in Bank: %i  With Standard Deviation %f\n", totalCustomerMinutes/totalCustomersServed, standardDeviation);
+    printf("Average Time in Bank: %f  With Standard Deviation %f\n", totalCustomerMinutes/totalCustomersServed, standardDeviation);
     printf("Maximum Wait Time: %f\n", maximumWaitTime);
     printf("Total Service Time: %f\n", totalServiceTime);
     printf("Total Idle Time: %f\n", totalIdleTime);

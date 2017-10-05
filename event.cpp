@@ -1,7 +1,8 @@
 #include "event.h"
 
-Event::Event(double t){
-  this->time = t;
+Event::Event(double start, double duration){
+  this->arrivalTime = start;
+  this->serviceDuration = duration;
 }
 
 int Event::isCustomer(){

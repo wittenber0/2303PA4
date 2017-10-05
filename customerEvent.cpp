@@ -1,7 +1,7 @@
 #include "customerEvent.h"
 #include "statistics.h"
 
-CustomerEvent::CustomerEvent(double arrivalTime, double serviceDuration) : Event(arrivalTime){
+CustomerEvent::CustomerEvent(double arrivalTime, double serviceDuration) : Event(arrivalTime, serviceDuration){
   this->arrivalTime = arrivalTime;
   this->serviceDuration = serviceDuration;
 }

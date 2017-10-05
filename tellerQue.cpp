@@ -46,6 +46,7 @@ int TellerQue::addHelper(TQNode* n, CustomerEvent e){
 }
 
 int TellerQue::add(CustomerEvent e){
+  this->size++;
 	return this->addHelper(this->first, e);
 }
 
