@@ -5,6 +5,7 @@ private:
 
 public:
   Event(double arrivalTime, double serviceDuration);
+  Event();
   double arrivalTime;
   double serviceDuration;
   double completionTime;

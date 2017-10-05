@@ -6,6 +6,7 @@ public:
   Event customerevent;
   TQNode* previous;
   TQNode* next;
+  TQNode();
   TQNode(Event c, TQNode* p, TQNode* n);
 };
 

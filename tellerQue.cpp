@@ -1,4 +1,5 @@
 #include "tellerQue.h"
+#include "statistics.h"
 #include "event.h"
 #include <iostream>
 
@@ -8,15 +9,17 @@ TQNode::TQNode(Event c, TQNode* p, TQNode* n){
   this->next = n;
 }
 
+TQNode::TQNode(){
+}
 
 TellerQue::TellerQue()
 {
-  this->size = 0
+  this->size = 0;
   this->avalibleTime=0;
 }
 
 int TellerQue::idle(double duration){
-  this->avalibleTime = startTime + duration;
+  this->avalibleTime = globalclock + duration;
   return 0;
 }
 
@@ -26,7 +29,7 @@ double TellerQue::getAvalible(){
 
 int TellerQue::addHelper(TQNode* n, Event e){
   if(first){
-      if(e.arrivalTime > n->previous->customerevent.getArrivalTime() && e.arrivalTime < n->customerevent.getArrivalTime()){
+      if(e.arrivalTime > n->previous->customerevent.arrivalTime && e.arrivalTime < n->customerevent.arrivalTime){
         TQNode* middle = new TQNode(e, n->previous, n);
         n->previous->next = middle;
         n->previous = middle;
@@ -35,12 +38,13 @@ int TellerQue::addHelper(TQNode* n, Event e){
           this->addHelper(n->next, e);
         }else{
           TQNode* end = new TQNode(e, n, 0);
-          this->last = end;
+          this->last = *end;
         }
       }
   }else{
     this->first = new TQNode(e, 0, 0);
-    this->last = this->first;
+    TQNode* tp = this->first;
+    this->last = *tp;
   }
 
 
@@ -56,6 +60,7 @@ int TellerQue::add(Event e){
 int TellerQue::deleteNode(TQNode* n){
   //deleteNode From memory still needs to be done here
   n->previous->next = n->next;
+  return 0;
 }
 
 int TellerQue::getSize(){
@@ -78,10 +83,14 @@ int TellerQue::removeHelp(TQNode* n, Event c){
 
 
 int TellerQue::remove(Event c){
-  this->current = this->first;
-  TQNode* kill = this->current;
+  TQNode* tp = this->first;
+  this->current = *tp;
+  TQNode tp2 = this->current;
+  TQNode* kill = &tp2;
 
   this->removeHelp(kill, c);
+
+  return 0;
 }
 
 TQNode* TellerQue::getFirst(){
@@ -90,5 +99,7 @@ TQNode* TellerQue::getFirst(){
 
 
 TQNode* TellerQue::getLast(){
-  return this->last;
+  TQNode t = this->last;
+  TQNode* tp = &t;
+  return tp;
 }
