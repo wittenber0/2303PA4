@@ -1,9 +1,14 @@
-double globalclock;
-double totalIdleTime=0;
-double totalServiceTime=0;
-int totalCustomersServed=0;
-double totalCustomerMinutes=0;
-double maximumWaitTime=0;
-double finishTime =0;
-int emptybank = 0;
-double standardDeviation = 0;
+//#ifdef dd
+//#define dd
+
+extern double globalclock;
+extern double totalIdleTime;
+extern double totalServiceTime;
+extern int totalCustomersServed;
+extern double totalCustomerMinutes;
+extern double maximumWaitTime;
+extern double finishTime;
+extern int emptybank;
+extern double standardDeviation;
+
+//#endif
