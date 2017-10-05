@@ -1,4 +1,5 @@
 #include "tellerEvent.h"
+#include <cstdlib>
 
 
 double TellerEvent::idle(){
@@ -6,11 +7,15 @@ double TellerEvent::idle(){
 }
 
 TellerEvent::TellerEvent(double occuranceTime, double duration){
-  this.occuranceTime = occuranceTime;
-  this.duration = this.idle();
+  this->occuranceTime = occuranceTime;
+  this->duration = this->idle();
 }
 
 int TellerEvent::action(){
-  totalIdleTime += this.duration;
+  totalIdleTime += this->duration;
 
+}
+
+double TellerEvent::getDuration(){
+	return this->duration;
 }

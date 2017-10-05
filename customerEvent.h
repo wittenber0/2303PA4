@@ -1,5 +1,6 @@
-//#include "headerheader.h"
+
 #include "event.h"
+
 
 class CustomerEvent : public Event{
 private:
@@ -9,4 +10,6 @@ private:
 public:
   CustomerEvent(double arrivalTime, double serviceDuration);
   int action();
+  int isCustomer();
+  double getArrivalTime();
 };

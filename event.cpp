@@ -1,10 +1,10 @@
-
+#include "event.h"
 
 Event::Event(int t){
-  this.time = t;
+  this->time = t;
 }
 
-int Event:isCustomer(){
+int Event::isCustomer(){
   return 0;
 }
 

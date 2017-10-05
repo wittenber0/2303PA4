@@ -4,3 +4,4 @@
 #include "eventQue.h"
 #include "tellerEvent.h"
 #include "customerEvent.h"
+#include "statistics.h"

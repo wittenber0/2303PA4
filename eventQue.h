@@ -14,6 +14,7 @@ private:
   ENode* current;
   int deleteNode(ENode* n);
   int removeHelp(ENode* n, Event e);
+  int addHelp(ENode* n, Event e);
 
 public:
   EventQue();

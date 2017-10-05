@@ -1,13 +1,9 @@
-#include "tellerQue.h"
+#include "customerEvent.h"
+#include "tellerEvent.h"
 #include "eventQue.h"
+#include "tellerQue.h"
 #include <cstdlib>
-double globalclock;
-double totalIdleTime=0;
-double totalServiceTime=0;
-int totalCustomersServed=0;
-double totalCustomerMinutes=0;
-double maximumWaitTime=0;
-double finishTime =0;
+
 
 
 
@@ -54,13 +50,13 @@ int main(int argc, char* argv[]){
 
     for (globalclock =0; globalclock<simTime; globalclock += 0.1){
     //add handling starting ....
-      if(eventque->getFirst() && eventque->getFirst()->isCustomer()){
+      if(eventque.getFirst() && eventque.getFirst()->isCustomer()){
 
         CustomerEvent* E = eventque.getFirst;
-        if (E->iscustomer){
-          TellerQue* smallest = tellerlist->getSmallestTeller();
-          smallest->add(E);
-          eventque->remove(E);
+        if (E->isCustomer()){
+          TellerQue* smallest = getSmallestTeller(tellerlist, numTellers);
+          smallest->add(*E);
+          eventque.remove(*E);
         }
 
         for (int i=0; i< numTellers; i++){
@@ -69,8 +65,8 @@ int main(int argc, char* argv[]){
             currentTeller++;
           }
 
-          if(currentTeller->getAvalible() == globalclock && currentTeller->first){
-            Event* nextEvent = currentTeller->first;
+          if(currentTeller.getAvalible() == globalclock && currentTeller.first){
+            Event* nextEvent = currentTeller.first;
             nextEvent->completionTime = globalclock + nextEvent->serviceTime;
             nextEvent->action();
 

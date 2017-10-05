@@ -1,3 +1,5 @@
+#include "statistics.h"
+
 class Event{
 private:
 
