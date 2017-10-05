@@ -1,8 +1,4 @@
-//#include "headerheader.h"
-//#include "customerEvent.h"
-//#include "tellerEvent.h"
-//#include "statistics.h"
-//#include "eventQue.h"
+#include "customerEvent.h"
 
 
 class TQNode{
@@ -23,7 +19,7 @@ public:
   TQNode* getFirst();
   TQNode* getLast();
   double getAvalible();
-  int idle(TellerEvent* t);
+  int idle(double duration);
 
 
 private:

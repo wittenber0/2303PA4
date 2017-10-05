@@ -86,7 +86,7 @@ int main(int argc, char* argv[]){
 
             //tellerEvent constructor is wrong I thinkk we need to randomize idle duratin here instead of wherever it is
             TellerEvent* idleEvent = new TellerEvent(globalclock);
-            currentTeller->idle(idleEvent);
+            currentTeller->idle(idleEvent->getDuration());
             idleEvent->action();
           }
         }

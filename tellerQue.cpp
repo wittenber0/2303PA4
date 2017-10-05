@@ -1,4 +1,3 @@
-//#include "headerheader.h"
 #include "tellerQue.h"
 
 TQNode::TQNode(CustomerEvent c, TQNode* p, TQNode* n){
@@ -14,8 +13,8 @@ TellerQue::TellerQue()
   this->avalibleTime=0;
 }
 
-int TellerQue::idle(TellerEvent* t){
-  this->avalibleTime = startTime + t->getDuration();
+int TellerQue::idle(double duration){
+  this->avalibleTime = startTime + duration;
   return 0;
 }
 

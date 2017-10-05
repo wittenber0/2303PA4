@@ -1,5 +1,5 @@
-
-#include "headerheader.h"
+#include "customerEvent.h"
+#include "statistics.h"
 
 CustomerEvent::CustomerEvent(double arrivalTime, double serviceDuration) : Event(arrivalTime){
   this->arrivalTime = arrivalTime;
