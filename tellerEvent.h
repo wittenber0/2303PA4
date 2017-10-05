@@ -3,7 +3,7 @@
 
 class TellerEvent : public Event{
 public:
-  TellerEvent(double occuranceTime, double duration);
+  TellerEvent(double occuranceTime);
   int action();
   double idle();
   double getDuration();

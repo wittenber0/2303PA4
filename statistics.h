@@ -6,3 +6,4 @@ double totalCustomerMinutes=0;
 double maximumWaitTime=0;
 double finishTime =0;
 int emptybank = 0;
+double standardDeviation = 0;

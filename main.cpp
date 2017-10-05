@@ -95,10 +95,10 @@ int main(int argc, char* argv[]){
 
     printf("Total Customers Served: %i\n", totalCustomersServed);
     printf("Total Number of Tellers: %i\n", numTellers);
-    printf("Average Time in Bank: %i  With Standard Deviation %d \n", totalCustomerMinutes/totalCustomersServed, standardDeviation);
-    printf("Maximum Wait Time: %d\n", maximumWaitTime);
-    printf("Total Service Time: %d\n", totalServiceTime);
-    printf("Total Idle Time: %d\n", totalIdleTime);
+    printf("Average Time in Bank: %i  With Standard Deviation %f\n", totalCustomerMinutes/totalCustomersServed, standardDeviation);
+    printf("Maximum Wait Time: %f\n", maximumWaitTime);
+    printf("Total Service Time: %f\n", totalServiceTime);
+    printf("Total Idle Time: %f\n", totalIdleTime);
 
   }
 }
