@@ -1,5 +1,6 @@
 #include "tellerQue.h"
 #include "event.h"
+#include <iostream>
 
 TQNode::TQNode(Event c, TQNode* p, TQNode* n){
   this->customerevent = c;
@@ -38,7 +39,7 @@ int TellerQue::addHelper(TQNode* n, Event e){
         }
       }
   }else{
-    this->first = new ENode(e, 0, 0);
+    this->first = new TQNode(e, 0, 0);
     this->last = this->first;
   }
 
