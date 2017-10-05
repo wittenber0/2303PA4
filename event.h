@@ -1,12 +1,12 @@
-//#include "statistics.h"
+
 
 class Event{
 private:
 
 
 public:
-  Event(int t);
-  int action();
-  int time;
+  Event(double t);
+  virtual int action();
+  double time;
   virtual int isCustomer();
 };

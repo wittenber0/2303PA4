@@ -1,12 +1,12 @@
-#include "tellerEvent.h"
-//#include <cstdlib>
+#include "headerheader.h"
+#include <cstdlib>
 
 
 double TellerEvent::idle(){
   return 150*rand()/float(RAND_MAX);
 }
 
-TellerEvent::TellerEvent(double occuranceTime){
+TellerEvent::TellerEvent(double occuranceTime) : Event(occuranceTime){
   this->occuranceTime = occuranceTime;
   this->duration = this->idle();
 }
@@ -14,6 +14,7 @@ TellerEvent::TellerEvent(double occuranceTime){
 int TellerEvent::action(){
   totalIdleTime += this->duration;
 
+  return 0;
 }
 
 double TellerEvent::getDuration(){

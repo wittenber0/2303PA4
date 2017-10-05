@@ -1,4 +1,8 @@
-//#include "headerheader.h"
+#include <iostream>
+#include "tellerEvent.h"
+#include "customerEvent.h"
+#include "statistics.h"
+#include "tellerQue.h"
 #include "eventQue.h"
 
 ENode::ENode(Event e, ENode* p, ENode* n){

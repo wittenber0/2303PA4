@@ -1,13 +1,13 @@
-#include "event.h"
+#include "headerheader.h"
 
-Event::Event(int t){
+Event::Event(double t){
   this->time = t;
 }
 
-virtual int Event::isCustomer(){
+int Event::isCustomer(){
   return 0;
 }
 
-virtual int Event::action(){
+int Event::action(){
   return 0;
 }

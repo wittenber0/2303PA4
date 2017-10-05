@@ -1,9 +1,7 @@
 
-#include "customerEvent.h"//#include "headerheader.h"
-#include "event.h"
+#include "headerheader.h"
 
-CustomerEvent::CustomerEvent(double arrivalTime, double serviceDuration){
-  Event(arrivalTime);
+CustomerEvent::CustomerEvent(double arrivalTime, double serviceDuration) : Event(arrivalTime){
   this->arrivalTime = arrivalTime;
   this->serviceDuration = serviceDuration;
 }
@@ -15,6 +13,7 @@ int CustomerEvent::action(){
   if(this->completionTime - this->arrivalTime > maximumWaitTime){
     maximumWaitTime = this->completionTime - this->arrivalTime;
   }
+  return 0;
 }
 
 int CustomerEvent::isCustomer(){
@@ -30,5 +29,5 @@ double CustomerEvent::getCompletionTime(){
 }
 
 double CustomerEvent::getServiceDuration(){
-	return this->getServiceDuration;
+	return this->serviceDuration;
 }
