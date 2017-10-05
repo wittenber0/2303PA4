@@ -3,7 +3,7 @@ CFLAGS=-g
 
 all: qSim
 qSim: main.o customerEvent.o event.o tellerEvent.o tellerQue.o
-	g++ -c main.o customerEvent.o event.o tellerEvent.o tellerQue.o -o qSIm
+	g++ -g main.o customerEvent.o event.o tellerEvent.o tellerQue.o -o qSIm
 
 main.o: main.cpp statistics.h event.h customerEvent.h tellerEvent.h tellerQue.h
 	g++ -c main.cpp
