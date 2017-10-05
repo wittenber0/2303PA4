@@ -1,20 +1,25 @@
+
 CFLAGS=-g
 
-all: LIFE
-LIFE: main.o play.o InitialBoard.o PrintBoard.o
-	gcc main.o -o LIFE
+all: qSim
+qSim: main.o customerEvent.o event.o tellerEvent.o tellerQue.o 
+	g++ main.o -o qSIm
 
-main.o: main.c life.h
-	gcc -c   main.c
+main.o: main.cpp statistics.h event.h customerEvent.h tellerEvent.h tellerQue.h eventQue.h
+	g++ -c   main.cpp
 
-play.o: play.c life.h
-	gcc -c   play.c
+customerEvent.o: customerEvent.cpp customerEvent.h event.h
+	g++ -c   customerEvent.cpp
 
-InitialBoard.o: InitialBoard.c life.h
-	gcc -c   InitialBoard.c	
+event.o: event.cpp Event.h
+	g++ -c   Event.cpp
 
-PrintBoard.o: PrintBoard.c life.h
-	gcc -c   PrintBoard.c	
+tellerEvent.o: tellerEvent.cpp tellerEvent.h event.h
+	g++ -c   tellerEvent.cpp
+
+tellerQue.o: tellerQue.cpp tellerQue.h
+	g++ -c   customerEvent.cpp
+
 
 clean:
-	rm   =f  *.o LIFE 
+	rm   =f  *.o qSim
