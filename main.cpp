@@ -1,8 +1,10 @@
+#include "event.h"
 #include "customerEvent.h"
 #include "tellerEvent.h"
 #include "eventQue.h"
 #include "tellerQue.h"
 #include <cstdlib>
+#include <iostream>
 
 
 
@@ -45,12 +47,12 @@ int main(int argc, char* argv[]){
 
       CustomerEvent customerevent = new CustomerEvent(arrTime, serviceDuration);
       //add handling starting ....
-      eventque->add(customerevent);
+      eventque.add(customerevent);
     }
 
     for (globalclock =0; globalclock<simTime; globalclock += 0.1){
     //add handling starting ....
-      if(eventque.getFirst() && eventque.getFirst()->isCustomer()){
+      if(eventque.getFirst() && eventque.getFirst()->event.isCustomer()){
 
         CustomerEvent* E = eventque.getFirst;
         if (E->isCustomer()){
@@ -66,16 +68,16 @@ int main(int argc, char* argv[]){
           }
 
           if(currentTeller.getAvalible() == globalclock && currentTeller.first){
-            Event* nextEvent = currentTeller.first;
-            nextEvent->completionTime = globalclock + nextEvent->serviceTime;
+            CustomerEvent* nextEvent = currentTeller.first;
+            nextEvent->completionTime = globalclock + nextEvent->serviceDuration;
             nextEvent->action();
 
-            currentTeller->avalibleTime = globalclock + nextEvent->serviceTime;
-            proccessedEvents->add(nextEvent);
-            currentTeller->remove(nextEvent);
-          }else if(!currentTeller->first && currentTeller->getAvalible() == globalclock){
+            currentTeller.avalibleTime = globalclock + nextEvent->serviceDuration;
+            proccessedEvents.add(*nextEvent);
+            currentTeller.remove(*nextEvent);
+          }else if(!currentTeller.first && currentTeller.getAvalible() == globalclock){
             TellerEvent* idleEvent = new TellerEvent(globalclock);
-            currentTeller->idle(idleEvent);
+            currentTeller.idle(idleEvent);
             idleEvent->action();
           }
         }
